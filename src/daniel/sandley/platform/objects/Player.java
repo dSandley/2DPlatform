@@ -30,7 +30,7 @@ public class Player extends GameObject {
 		playerWalkLeft = new Animation(10, tex.player[0], tex.player[1], tex.player[2], tex.player[3]);
 		playerWalkRight = new Animation(10, tex.player[4], tex.player[5], tex.player[6], tex.player[7]);
 		playerStandLeft = new Animation(10, tex.player[8], tex.player[9], tex.player[10]);
-		playerStandRight = new Animation(10, tex.player[11], tex.player[12], tex.player[13]);
+		playerStandRight = new Animation(15, tex.player[11], tex.player[12], tex.player[13]);
 		playerJumpRight = new Animation(10, tex.player[15]);
 		playerJumpLeft = new Animation(10, tex.player[14]);
 		// TODO Auto-generated constructor stub
@@ -95,20 +95,30 @@ public class Player extends GameObject {
 	public void render(Graphics graphic) {
 		// TODO Auto-generated method stub
 		graphic.setColor(Color.cyan);
-		if ( velX < 0) {
-			playerWalkLeft.drawAnimation(graphic, (int) x, (int) y, 55, 96);
-		}
-		if ( velX > 0) {
-			playerWalkRight.drawAnimation(graphic, (int) x, (int) y, 55, 96);
-		}
-
-		if (velX == 0) {
-			playerStandRight.drawAnimation(graphic, (int) x, (int) y, 55, 96);
+		if (jumping ) {
+			if ( velX > 0 || rightStandingFinal) {
+				playerJumpRight.drawAnimation(graphic, (int) x, (int) y, 55, 96);
+			}
+			if ( velX < 0 || leftStandingFinal) {
+				playerJumpLeft.drawAnimation(graphic, (int) x, (int) y, 55, 96);
+			}
 		}
 
 		else {
+			if (velX < 0) {
+				playerWalkLeft.drawAnimation(graphic, (int) x, (int) y, 55, 96);
+			}
+			if (velX > 0) {
+				playerWalkRight.drawAnimation(graphic, (int) x, (int) y, 55, 96);
+			}
 
-			// graphic.drawImage(tex.player[0], (int) x, (int) y, 55, 96, null);
+			if (rightStandingFinal) {
+				playerStandRight.drawAnimation(graphic, (int) x, (int) y, 55, 96);
+			}
+
+			if (leftStandingFinal) {
+				playerStandLeft.drawAnimation(graphic, (int) x, (int) y, 55, 96);
+			}
 		}
 
 		Graphics2D collison = (Graphics2D) graphic;

@@ -12,7 +12,27 @@ public abstract class GameObject {
 	protected ObjectId id;
 	protected boolean falling = true;
 	protected boolean jumping = false;
+	protected boolean leftStandingFinal = false;
+	protected boolean rightStandingFinal = true;
 	
+	
+	
+	public boolean isLeftStandingFinal() {
+		return leftStandingFinal;
+	}
+
+	public void setLeftStandingFinal(boolean leftStandingFinal) {
+		this.leftStandingFinal = leftStandingFinal;
+	}
+
+	public boolean isRightStandingFinal() {
+		return rightStandingFinal;
+	}
+
+	public void setRightStandingFinal(boolean rightStandingFinal) {
+		this.rightStandingFinal = rightStandingFinal;
+	}
+
 	public boolean isFalling() {
 		return falling;
 	}

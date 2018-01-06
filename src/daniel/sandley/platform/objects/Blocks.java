@@ -28,11 +28,11 @@ public class Blocks extends GameObject {
 	public void render(Graphics graphic) {
 		// TODO Auto-generated method stub
 
-		if (type == 0)
-		 graphic.drawImage(tex.block[0],(int) x,(int) y, null);
-		// dirt block
-		if (type == 1)
-			 graphic.drawImage(tex.block[1],(int) x,(int) y, null);
+		//if (type == 0)graphic.drawImage(tex.block[0],(int) x,(int) y, null);
+		
+		//// dirt block
+	//	if (type == 1)graphic.drawImage(tex.block[1],(int) x,(int) y, null);
+			
 			// dirt block
 		// the number in the array relates to the block type
 	}
